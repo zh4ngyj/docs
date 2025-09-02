@@ -15,4 +15,6 @@ miniconda
 
 ## Java
 
+## C/C++
+
 ## React
