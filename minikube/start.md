@@ -26,7 +26,7 @@
 sudo passwd root
 ~~~
 
-**推荐*设置代理，访问国外访问资源**
+**(推荐)设置网络代理**：便于访问国外代码等相关资源，避免额外的配置
 1. 开启clash的allow lan、系统代理、TUN模式（支持UDP协议）
 2. 配置物理机的局域网ip地址作为虚拟机的代理地址
 **配置开关代理的脚本**：nano ~/proxy.sh
@@ -37,8 +37,10 @@ sudo passwd root
 #   source proxy.sh off  # 关闭代理
 #   source proxy.sh      # 显示当前状态
 
-PROXY_SERVER="http://192.168.5.173:7890"
-NO_PROXY_LIST="localhost,127.0.0.1,192.168.49.2"
+# your_ip替换成你物理机的本地地址
+PROXY_SERVER="http://your_ip:7890"
+# your_minikube_ip替换成minikube集群ip地址，可以通过命令*minikube ip*获取
+NO_PROXY_LIST="localhost,127.0.0.1,your_minikube_ip"
 
 enable_proxy() {
     export http_proxy="$PROXY_SERVER"
